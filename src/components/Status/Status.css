@@ -1,0 +1,233 @@
+body {
+  background: #ffffff;
+}
+
+.stories-container {
+  max-width: 640px;
+  padding: 10px;
+  margin: 24px auto;
+  position: relative;
+
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn,
+.stories-full-view .previous-btn,
+.stories-full-view .next-btn {
+  width: 17px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  color: #000000;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms ease;
+}
+
+.stories-container .previous-btn.active,
+.stories-container .next-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stories-container .previous-btn,
+.stories-full-view .previous-btn {
+  left: 8px;
+}
+
+.stories-container .next-btn,
+.stories-full-view .next-btn {
+  right: 8px;
+}
+
+.stories-container .story {
+  background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100%;
+  width: 73px;
+  height: 73px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.stories-container .story img {
+  border-radius: 100%;
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+}
+
+.stories-container .stories {
+  display: flex;
+  padding-bottom: 10px;
+  gap: 8px;
+}
+
+.stories-container .content {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.stories-container .content::-webkit-scrollbar {
+  display: none;
+}
+
+.stories-container .author{
+display: none;
+
+}
+
+.stories-full-view {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;  
+  place-items: center;
+}
+
+.stories-full-view.active {
+  display: grid;
+}
+
+.stories-full-view .close-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 30px;
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.stories-full-view .content {
+  height: 90vh;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.stories-full-view .story {
+  height: 100%;
+  text-align: center;
+}
+
+.stories-full-view .story img {
+  height: 100%;
+  aspect-ratio: 16/16;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-left: 60px;
+}
+
+.stories-full-view .author {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 32px;
+  border-radius: 8px;
+}
+
+/* @media (max-width: 765px) {
+    body{
+        margin-top: 50px;
+    }
+} */
+
+@media (max-width: 765px) {
+  .stories-container {
+    width: 100%;
+    padding: 10px 0;
+    margin: 50px auto;
+  }
+
+  .stories-container .previous-btn,
+  .stories-container .next-btn {
+    display: none; 
+  }
+  .stories-full-view.active {
+    display: grid;
+  }
+
+  .stories-full-view .close-btn {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 30px;
+    background: #444;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    z-index: 20;
+    cursor: pointer;
+  }
+
+  .stories-full-view .content {
+    height: 90vh;
+    width: 100%;
+    max-width: 100%;   
+    position: relative;
+  }
+
+  .stories-full-view .story {
+    height: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stories-full-view .story img {
+    height: auto; 
+    width: 100%; 
+    aspect-ratio: unset; 
+    object-fit: cover;
+    border-radius: 0; 
+    padding-left: 7px; 
+    padding-right: 7px;
+  }
+
+  .stories-full-view .author {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 32px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 765px) {
+  body {
+  margin-top: 50px;
+}
+}

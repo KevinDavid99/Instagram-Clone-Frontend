@@ -1,0 +1,383 @@
+/* Base Styles */
+
+:root {
+    font-size: 10px;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+img {
+    display: block;
+}
+
+
+.containerr {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+
+.btn {
+    display: inline-block;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.visually_hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Profile Section */
+
+.profile {
+    padding: 5rem 0;
+}
+
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.profile_image {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.profile_image img {
+    border-radius: 50%;
+}
+
+.profile_user_settings,
+.profileStats,
+.profile_bio {
+    float: left;
+    width: calc(66.666% - 2rem);
+}
+
+.profile_user_settings {
+    margin-top: 1.1rem;
+}
+
+.profile_user_name{
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+}
+
+.profile_edit_btn {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border: 0.1rem solid #dbdbdb;
+    border-radius: 18px;
+    padding: 12px;
+    margin-left: 2rem;
+}
+.profile_edit_btn:hover{
+    background-color: #f4f4f4;
+    transition: 0.5s;
+}
+.profile_settings_btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.profileStats {
+    margin-top: 2.3rem;
+}
+
+.profileStats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-right: 4rem;
+
+}
+
+.profileStats li:last-of-type {
+    margin-right: 0;
+}
+
+.profile_bio {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 2.3rem;
+}
+
+.profile_real_name,
+.profile_stat_count,
+.profile_edit_btn {
+    font-weight: 600;
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+.gallery_item {
+    position: relative;
+    margin: 1rem;
+    color: #ffffff;
+    height: 23rem; 
+    background-color: rgb(171, 171, 171);
+}
+
+.gallery_item:hover .gallery_item_info,
+.gallery_item:focus .gallery_item_info {
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gallery_item .actions{
+    display : flex;
+    position : absolute;
+    cursor: pointer;
+    top : 0
+}
+
+
+.gallery_item_info {
+    display: block;
+}
+
+.gallery_item_info li {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.gallery_item_likes {
+    margin-right: 2.2rem;
+}
+
+.gallery-item-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.fa-clone,
+.fa-comment {
+    transform: rotateY(180deg);
+}
+
+.gallery_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Loader */
+
+/* .loader {
+    width: 5rem;
+    height: 5rem;
+    border: 0.6rem solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: loader 500ms linear infinite;
+} */
+
+/* Media Query */
+.follow_btn{
+    background-color: rgb(86, 136, 236);
+    color : white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.follow_btn:focus{
+    outline: none;
+}
+.follow_btn:hover{
+    background-color:rgb(49, 95, 189);
+}
+
+
+@media screen and (max-width: 40rem) {
+    .profile {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5.4rem 0;
+    }
+
+    .profile::after {
+        display: none;
+    }
+
+    .profile_image,
+    .profile_user_settings,
+    .profile_bio,
+    .profileStats {
+        float: none;
+        width: auto;
+    }
+
+    .profile_image img {
+        width: 7.7rem;
+    }
+
+    .profile_user_settings {
+        flex-basis: calc(100% - 10.7rem);
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .profile_user_name {
+        font-size: 2.2rem;
+    }
+
+    .profile_edit_btn {
+        order: 1;
+        padding: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .profile_edit_btn {
+        margin-left: 0;
+    }
+
+    .profile_bio {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+    }
+
+    .profile_edit_btn,
+    .profile_bio,
+    .profileStats {
+        flex-basis: 100%;
+    }
+
+    .profileStats {
+        order: 1;
+        margin-top: 1.5rem;
+    }
+
+    .profileStats ul {
+        display: flex;
+        text-align: center;
+        padding: 1.2rem 0;
+        border-top: 0.1rem solid #dadada;
+        border-bottom: 0.1rem solid #dadada;
+    }
+
+    .profileStats li {
+        font-size: 1.4rem;
+        flex: 1;
+        margin: 0;
+    }
+
+    .profile_stat_count {
+        display: block;
+    }
+}
+
+/* Grid Feature Query */
+
+@supports (display: grid) {
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 3rem;
+        align-items: center;
+    }
+
+    .profile_image {
+        grid-row: 1 / -1;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        grid-gap: 2rem;
+    }
+
+    .profile_image,
+    .profile_user_settings,
+    .profileStats,
+    .profile_bio,
+    .gallery_item,
+    .gallery {
+        width: auto;
+        margin: 0;
+    }
+
+    @media (max-width: 40rem) {
+        .profile {
+            grid-template-columns: auto 1fr;
+            grid-row-gap: 1.5rem;
+        }
+
+        .profile_image {
+            grid-row: 1 / 2;
+        }
+
+        .profile_user_settings {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 1rem;
+        }
+
+        .profile_edit_btn,
+        .profileStats,
+        .profile_bio {
+            grid-column: 1 / -1;
+        }
+
+        .profile_user_settings,
+        .profile_edit_btn,
+        .profile_settings_btn,
+        .profile_bio,
+        .profileStats {
+            margin: 0;
+        }
+    }
+}
+
+/* Loader Animation */
+
+/* @keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+} */
+

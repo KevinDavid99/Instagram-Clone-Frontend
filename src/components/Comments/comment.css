@@ -1,0 +1,52 @@
+
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  width: clamp(40%, 300px, 90%);
+  height: min(50%, 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  margin: auto;
+}
+.del-message{
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.select-btns button{
+  margin-left: 20px;
+  margin-top: 4px;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.select-btns .cancel{
+  color: white;
+  background-color: rgb(55, 55, 55)
+}
+.select-btns .cancel:hover{
+  background-color: rgb(31, 31, 31);
+}
+
+.select-btns .delete{
+  color: white;
+  background-color: rgb(234, 45, 45)
+}
+.select-btns .delete:hover{
+  background-color: rgb(202, 12, 12);
+}

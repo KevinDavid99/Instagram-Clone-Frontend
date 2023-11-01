@@ -1,0 +1,24 @@
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  width: clamp(50%, 700px, 90%);
+  height: min(50%, 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  background-color: #FF9300;
+  margin: auto;
+}

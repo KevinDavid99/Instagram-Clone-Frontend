@@ -1,0 +1,197 @@
+.App{
+  background-color: white;
+}
+
+.side-bar{
+  color: rgb(0, 0, 0);
+  border-right: rgb(196, 196, 196) 0.001px solid;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 0;
+  background-color: #ffffff;
+  width: 244px;
+}
+.sidebar-links{
+  padding-top: 15px;
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  display: flex;
+  padding-left: 19px;
+  margin-bottom: 3px;
+}
+
+.sidebar-links:hover{
+  background-color: rgb(231, 231, 231);
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+.sidebar-profileImg:hover{
+  background-color: rgb(231, 231, 231);
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.sidebar-profileImg{
+  padding-top: 15px;
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  display: flex;
+  padding-left: 19px;
+  margin-bottom: 3px;
+}
+
+.sidebar-links-logo{
+  padding-top: 25px;
+  height: 55px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.sidebar-links-logo .ig-logo{
+  display: none;
+}
+.sidebar-links p{
+  font-weight: 400;
+}
+.sidebar-links img{
+  height: 29px;
+  padding-right: 15px;
+}
+
+
+
+.dropup{
+  position: relative;
+  display: flex;
+}
+
+.dropup-content{
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  border-radius: 11px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropup-content a {
+  color: black;
+  padding: 19px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropup-content a:hover {
+  background-color: #ddd;
+}
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+
+
+@media (max-width: 1257px) {
+.side-bar {
+  position: fixed;
+  width: 100px;
+
+}
+.sidebar-links p{
+  display: none;
+}
+.sidebar-profileImg p{
+  display: none;
+}
+.sidebar-links-logo .ig-text{
+  display: none;
+}
+.sidebar-links-logo .ig-logo{
+  display: block;
+  margin-left: 13px;
+}
+.App {
+  flex-direction: column; /* Stack components vertically */
+  align-items: center; /* Center components horizontally */
+}
+.profilePic p{
+  display: none;
+}
+}
+.search-btn{
+  display: none;
+}
+
+
+@media (max-width: 765px) {
+
+.notification,
+.message,
+.search,
+.menu,
+.image,
+.explore,
+.sidebar-profileImg{
+  display: none;
+}
+/* .search{
+  display: block;
+  margin-left: 104px;
+}
+.search:hover{
+  cursor: pointer;
+  transition: 0;
+  border-radius: 0px;
+} */
+/* .side-bar .searchbar{
+  display: block;
+} */
+.sidebar-links-logo .ig-text{
+  display: block;
+  height: 40px;
+}
+
+.side-bar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  bottom: 93%;
+  border-bottom: rgb(196, 196, 196) 0.001px solid;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.sidebar-links{
+  height: 41px;
+}
+.sidebar-links:hover{
+  background-color: white;
+}
+
+.sidebar-profileImg:hover{
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+
+.sidebar-profileImg{
+  background-color:white;
+  height: 50px;
+  width: 190%;
+  display: flex;
+  margin-right: 19px;
+  margin-bottom: 3px;
+}
+
+/* .card {
+  width: 100%;
+} */
+.sidebar-links-logo .ig-logo{
+    display: none;
+}
+
+}
+
