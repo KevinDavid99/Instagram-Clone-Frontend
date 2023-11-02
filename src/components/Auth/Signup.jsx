@@ -81,7 +81,7 @@ function Signup() {
         .then((response) => {
           if (response.ok) {
             console.log("User created!!");
-            navigate("/login");
+            navigate("/");
             return response.json();
           } else {
             setLoading(false);
@@ -179,7 +179,7 @@ function Signup() {
             <div className={styles.footer}>
               <p>
                 Already have an accout?
-                <Link to="/login">
+                <Link to="/">
                   <span>Log In</span>
                 </Link>
               </p>

@@ -37,7 +37,7 @@ function App() {
           <Route path="/profile-for/:username/:user_id" element={<FriendProfile userName = {userName} />} />
           <Route path="/searched/:searchedWord" element={<Searched/>}/>
         </Route>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </>

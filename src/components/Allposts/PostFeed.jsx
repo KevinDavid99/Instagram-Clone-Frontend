@@ -16,7 +16,7 @@ export function checkExpiryToken(){
     // comparing the current date and token expiry date values to check if the token is expired
     // then redirect the user to the login page
     if (newDate.getTime() >= userTokenDate.getTime()) {
-      window.location.href = '/login';
+      window.location.href = '/';
       localStorage.removeItem("Token");
       localStorage.removeItem("UserId");
       localStorage.removeItem("Username");
