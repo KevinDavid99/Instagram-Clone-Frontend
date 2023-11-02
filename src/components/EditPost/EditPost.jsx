@@ -17,7 +17,7 @@ function EditPost({ closeModal }) {
   const { postId } = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/get-posts/${postId}/`, {
+    fetch(`https://kem-instagram-clone.onrender.com/api/get-posts/${postId}/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -86,13 +86,16 @@ useEffect(() => {
         postData.append("files", selectedFile);
     }
 
-    fetch(`http://127.0.0.1:8000/api/post-update/${postId}/`, {
-      method: "PATCH",
-      body: postData,
-      headers: {
-        Authorization: `Token ${localStorage.getItem("Token")}`,
-      },
-    })
+    fetch(
+      `https://kem-instagram-clone.onrender.com/api/post-update/${postId}/`,
+      {
+        method: "PATCH",
+        body: postData,
+        headers: {
+          Authorization: `Token ${localStorage.getItem("Token")}`,
+        },
+      }
+    )
       .then((response) => {
         console.log(response);
         if (response.ok) {

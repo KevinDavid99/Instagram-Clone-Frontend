@@ -5,7 +5,7 @@ import '../Comments/comment.css'
 
 function DeleteComent({ closeModal, postID }) {
   const deletePost = () => {
-    fetch(`http://127.0.0.1:8000/api/posts/${postID}/`, {
+    fetch(`https://kem-instagram-clone.onrender.com/api/posts/${postID}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

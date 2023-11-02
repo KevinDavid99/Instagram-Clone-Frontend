@@ -34,13 +34,13 @@ function Sidebar() {
   const handleModal = ()=> setOpenModal(!openModal)
 
   const logOut = () =>{
-    fetch("http://127.0.0.1:8000/auth/logout/",{
-      method : 'POST',
-      headers : {
-          'Authorization': `Token ${localStorage.getItem('Token')}`,
-          'Content-Type': 'application/json',
-      }
-    })
+    fetch("https://kem-instagram-clone.onrender.com/auth/logout/", {
+      method: "POST",
+      headers: {
+        Authorization: `Token ${localStorage.getItem("Token")}`,
+        "Content-Type": "application/json",
+      },
+    });
     console.log('Log out sucessfull!!');
     localStorage.removeItem('Token');
     localStorage.removeItem("UserId");

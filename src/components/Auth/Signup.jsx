@@ -74,7 +74,7 @@ function Signup() {
       console.log(form.username);
       console.log(form.password1);
 
-      fetch("http://127.0.0.1:8000/auth/register/", {
+      fetch("https://kem-instagram-clone.onrender.com/auth/register/", {
         method: "POST",
         body: signUpForm,
       })
@@ -90,10 +90,10 @@ function Signup() {
         .then((data) => {
           console.log(data);
         })
-        .catch((err) =>{
+        .catch((err) => {
           setLoading(false);
-           console.log("Error: ", err)
-          });
+          console.log("Error: ", err);
+        });
     }
   };
 

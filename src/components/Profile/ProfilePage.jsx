@@ -9,7 +9,7 @@ import { checkExpiryToken } from "../Allposts/PostFeed";
 export async function fetchUserProfile(userName) {
   try {
     const response = await fetch(
-      `http://127.0.0.1:8000/api/${userName}-profile-settings/`,
+      `https://kem-instagram-clone.onrender.com/api/${userName}-profile-settings/`,
       {
         method: "GET",
         headers: {
@@ -28,7 +28,7 @@ export async function fetchUserProfile(userName) {
 export async function fetchUserFollowUnfollow(userID) {
   try {
     const response = await fetch(
-      `http://127.0.0.1:8000/user/follow/${userID}/`,
+      `https://kem-instagram-clone.onrender.com/user/follow/${userID}/`,
       {
         method: "GET",
         headers: {

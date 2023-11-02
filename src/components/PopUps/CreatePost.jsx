@@ -61,7 +61,7 @@ function CreatePost({ closeModal }) {
     postData.append("description", caption.description);
     postData.append("files", selectedFile);
 
-    fetch("http://127.0.0.1:8000/api/posts/", {
+    fetch("https://kem-instagram-clone.onrender.com/api/posts/", {
       method: "POST",
       body: postData,
       headers: {
@@ -72,7 +72,9 @@ function CreatePost({ closeModal }) {
         console.log(response);
         if (response.ok) {
           window.location.href = "/feed";
-        }else {setLoading(false)}
+        } else {
+          setLoading(false);
+        }
         return response.json();
       })
       .then((data) => console.log(data))

@@ -40,7 +40,7 @@ function PostFeed() {
     const userID = localStorage.getItem("UserId");
     const likey =  `isLike_${userID}_${postID}`
 
-    fetch(`http://127.0.0.1:8000/like/unlike/${postID}/`, {
+    fetch(`https://kem-instagram-clone.onrender.com/like/unlike/${postID}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,12 +52,11 @@ function PostFeed() {
       })
       .then((data) => {
         console.log(data);
-        const updateIslike = {...islike };
+        const updateIslike = { ...islike };
         updateIslike[postID] = data.liked;
         setIslike(updateIslike);
 
         localStorage.setItem(likey, JSON.stringify(updateIslike));
-
 
         setPosts((prevPost) =>
           prevPost.map((post) => {
@@ -74,7 +73,7 @@ function PostFeed() {
   checkExpiryToken()
   
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/posts/", {
+    fetch("https://kem-instagram-clone.onrender.com/api/posts/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -86,15 +85,15 @@ function PostFeed() {
       })
       .then((data) => {
         setPosts(data);
-      //   const userID = localStorage.getItem("UserId");
-      //   const updatedIsLike = {};
-      //   data.forEach((post) => {
-      //   const postID = post.id;
-      //   const likey = `isLike_${userID}_${postID}`;
-      //   const likedState = JSON.parse(localStorage.getItem(likey));
-      //   updatedIsLike[postID] = likedState || false;
-      // });
-      // setIslike(updatedIsLike);
+        //   const userID = localStorage.getItem("UserId");
+        //   const updatedIsLike = {};
+        //   data.forEach((post) => {
+        //   const postID = post.id;
+        //   const likey = `isLike_${userID}_${postID}`;
+        //   const likedState = JSON.parse(localStorage.getItem(likey));
+        //   updatedIsLike[postID] = likedState || false;
+        // });
+        // setIslike(updatedIsLike);
       })
       .catch((err) => {
         console.log(err);
@@ -102,7 +101,7 @@ function PostFeed() {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/auth/user/", {
+    fetch("https://kem-instagram-clone.onrender.com/auth/user/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

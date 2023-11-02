@@ -5,13 +5,16 @@ import { fetchUserFollowUnfollow } from "../Profile/ProfilePage";
 import {checkExpiryToken} from '../Allposts/PostFeed'
 
 export function fetchUserProfile(userName) {
-  return fetch(`http://127.0.0.1:8000/api/${userName}-profile-settings/`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${localStorage.getItem("Token")}`,
-    },
-  })
+  return fetch(
+    `https://kem-instagram-clone.onrender.com/api/${userName}-profile-settings/`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem("Token")}`,
+      },
+    }
+  )
     .then((response) => response.json())
     .catch((error) => {
       console.log("Error:", error);
@@ -59,20 +62,22 @@ function FriendProfile(props) {
   }, [])
   
   const toggleButton = (userID) =>{
-    fetch(`http://127.0.0.1:8000/user/follow/${userID}/`, {
+    fetch(`https://kem-instagram-clone.onrender.com/user/follow/${userID}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
-      }
-    }).then((response)=> response.json()).then((data)=>{
-      console.log(data);
-      const updateFollow = {...isFollowing}
-      updateFollow[userID] = data.Followed
-      setIsFollowing(updateFollow)
-      localStorage.setItem('isFollowing', JSON.stringify(updateFollow))
-      window.location.reload()
+      },
     })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const updateFollow = { ...isFollowing };
+        updateFollow[userID] = data.Followed;
+        setIsFollowing(updateFollow);
+        localStorage.setItem("isFollowing", JSON.stringify(updateFollow));
+        window.location.reload();
+      });
   }
 
   return (

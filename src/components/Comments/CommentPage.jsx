@@ -21,13 +21,16 @@ function CommentPage(username) {
 
     
     useEffect(() => {
-      fetch(`http://127.0.0.1:8000/api/comments/${postID}/`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("Token")}`,
-        },
-      })
+      fetch(
+        `https://kem-instagram-clone.onrender.com/api/comments/${postID}/`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("Token")}`,
+          },
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           setComments(data.comments);
@@ -49,13 +52,16 @@ function CommentPage(username) {
 
       commentData.append("body", commentPost.comment);
 
-      fetch(`http://127.0.0.1:8000/api/comments/${postID}/`, {
-        method: "POST",
-        body: commentData,
-        headers: {
-          Authorization: `Token ${localStorage.getItem("Token")}`,
-        },
-      })
+      fetch(
+        `https://kem-instagram-clone.onrender.com/api/comments/${postID}/`,
+        {
+          method: "POST",
+          body: commentData,
+          headers: {
+            Authorization: `Token ${localStorage.getItem("Token")}`,
+          },
+        }
+      )
         .then((response) => {
           response.json();
           window.location.reload();

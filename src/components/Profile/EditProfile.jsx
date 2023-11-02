@@ -62,16 +62,18 @@ function EditProfile(props) {
     }
     profileData.append("bio", editProfileData.bio);
 
-    fetch(`http://127.0.0.1:8000/api/${userName}-profile-settings/`, {
-      method: "PATCH",
-      body: profileData,
-      headers: {
-        Authorization: `Token ${localStorage.getItem("Token")}`,
-      },
-    })
+    fetch(
+      `https://kem-instagram-clone.onrender.com/api/${userName}-profile-settings/`,
+      {
+        method: "PATCH",
+        body: profileData,
+        headers: {
+          Authorization: `Token ${localStorage.getItem("Token")}`,
+        },
+      }
+    )
       .then((response) =>
-      response.status !== 200 ? setLoading(false) :
-      response.json()
+        response.status !== 200 ? setLoading(false) : response.json()
       )
       .then((data) => {
         console.log(data);

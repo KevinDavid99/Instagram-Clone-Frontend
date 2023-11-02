@@ -18,13 +18,16 @@ function Searched() {
 
     useEffect(()=>{
 
-        fetch(`http://127.0.0.1:8000/api/posts/search/?search=${searchedWord}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${localStorage.getItem("Token")}`,
-          },
-        })
+        fetch(
+          `https://kem-instagram-clone.onrender.com/api/posts/search/?search=${searchedWord}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${localStorage.getItem("Token")}`,
+            },
+          }
+        )
           .then((res) => {
             return res.json();
           })

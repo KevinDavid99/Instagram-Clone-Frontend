@@ -8,11 +8,11 @@ function DeletePost({ closeModal, postID }) {
   checkExpiryToken()
 
   const deletingPost = () => {
-    fetch(`http://127.0.0.1:8000/api/posts/${postID}/`, {
+    fetch(`https://kem-instagram-clone.onrender.com/api/posts/${postID}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Token ${localStorage.getItem("Token")}`,
+        Authorization: `Token ${localStorage.getItem("Token")}`,
       },
     })
       .then((response) => {

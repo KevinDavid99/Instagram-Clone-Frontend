@@ -62,7 +62,7 @@ function Login() {
       signInForm.append("username", loginForm.username);
       signInForm.append("password", loginForm.password);
 
-      fetch("http://127.0.0.1:8000/auth/login/", {
+      fetch("https://kem-instagram-clone.onrender.com/auth/login/", {
         method: "POST",
         body: signInForm,
       })
@@ -80,14 +80,14 @@ function Login() {
           console.log(data);
           if (data) {
             localStorage.setItem("Token", data.token);
-            localStorage.setItem("ExpiryToken", data.expiry)
+            localStorage.setItem("ExpiryToken", data.expiry);
             navigate("/feed");
           }
         })
         .catch((err) => {
-          setLoading(false)
-          console.log("Error: ", err)
-        })
+          setLoading(false);
+          console.log("Error: ", err);
+        });
     }
   };
 
