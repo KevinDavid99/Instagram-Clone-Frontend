@@ -40,13 +40,16 @@ function PostFeed() {
     const userID = localStorage.getItem("UserId");
     const likey =  `isLike_${userID}_${postID}`
 
-    fetch(`https://kem-instagram-clone.onrender.com/like/unlike/${postID}/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
-      },
-    })
+    fetch(
+      `https://instagram-clone-api-etqy.onrender.com/like/unlike/${postID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
+        },
+      }
+    )
       .then((res) => {
         return res.json();
       })
@@ -73,7 +76,7 @@ function PostFeed() {
   checkExpiryToken()
   
   useEffect(() => {
-    fetch("https://kem-instagram-clone.onrender.com/api/posts/", {
+    fetch("https://instagram-clone-api-etqy.onrender.com/api/posts/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +104,7 @@ function PostFeed() {
   }, []);
 
   useEffect(() => {
-    fetch("https://kem-instagram-clone.onrender.com/auth/user/", {
+    fetch("https://instagram-clone-api-etqy.onrender.com/auth/user/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

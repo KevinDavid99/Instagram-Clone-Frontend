@@ -22,7 +22,7 @@ function CommentPage(username) {
     
     useEffect(() => {
       fetch(
-        `https://kem-instagram-clone.onrender.com/api/comments/${postID}/`,
+        `https://instagram-clone-api-etqy.onrender.com/api/comments/${postID}/`,
         {
           method: "GET",
           headers: {
@@ -53,7 +53,7 @@ function CommentPage(username) {
       commentData.append("body", commentPost.comment);
 
       fetch(
-        `https://kem-instagram-clone.onrender.com/api/comments/${postID}/`,
+        `https://instagram-clone-api-etqy.onrender.com/api/comments/${postID}/`,
         {
           method: "POST",
           body: commentData,

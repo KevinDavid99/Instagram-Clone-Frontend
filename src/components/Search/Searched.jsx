@@ -19,7 +19,7 @@ function Searched() {
     useEffect(()=>{
 
         fetch(
-          `https://kem-instagram-clone.onrender.com/api/posts/search/?search=${searchedWord}`,
+          `https://instagram-clone-api-etqy.onrender.com/api/posts/search/?search=${searchedWord}`,
           {
             method: "GET",
             headers: {

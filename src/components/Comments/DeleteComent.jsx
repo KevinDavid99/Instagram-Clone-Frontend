@@ -5,13 +5,16 @@ import '../Comments/comment.css'
 
 function DeleteComent({ closeModal, postID }) {
   const deletePost = () => {
-    fetch(`https://kem-instagram-clone.onrender.com/api/posts/${postID}/`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("Token")}`,
-      },
-    })
+    fetch(
+      `https://instagram-clone-api-etqy.onrender.com/api/posts/${postID}/`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("Token")}`,
+        },
+      }
+    )
       .then((response) => {
         window.location.reload();
         return response.json();

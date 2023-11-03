@@ -17,13 +17,16 @@ function EditPost({ closeModal }) {
   const { postId } = useParams();
 
   useEffect(() => {
-    fetch(`https://kem-instagram-clone.onrender.com/api/get-posts/${postId}/`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
-      },
-    })
+    fetch(
+      `https://instagram-clone-api-etqy.onrender.com/api/get-posts/${postId}/`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setPrefilData(data);
@@ -87,7 +90,7 @@ useEffect(() => {
     }
 
     fetch(
-      `https://kem-instagram-clone.onrender.com/api/post-update/${postId}/`,
+      `https://instagram-clone-api-etqy.onrender.com/api/post-update/${postId}/`,
       {
         method: "PATCH",
         body: postData,

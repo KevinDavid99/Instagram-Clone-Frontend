@@ -62,7 +62,7 @@ function Login() {
       signInForm.append("username", loginForm.username);
       signInForm.append("password", loginForm.password);
 
-      fetch("https://kem-instagram-clone.onrender.com/auth/login/", {
+      fetch("https://instagram-clone-api-etqy.onrender.com/auth/login/", {
         method: "POST",
         body: signInForm,
       })

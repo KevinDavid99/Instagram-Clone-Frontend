@@ -6,7 +6,7 @@ import {checkExpiryToken} from '../Allposts/PostFeed'
 
 export function fetchUserProfile(userName) {
   return fetch(
-    `https://kem-instagram-clone.onrender.com/api/${userName}-profile-settings/`,
+    `https://instagram-clone-api-etqy.onrender.com/api/${userName}-profile-settings/`,
     {
       method: "GET",
       headers: {
@@ -62,13 +62,16 @@ function FriendProfile(props) {
   }, [])
   
   const toggleButton = (userID) =>{
-    fetch(`https://kem-instagram-clone.onrender.com/user/follow/${userID}/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
-      },
-    })
+    fetch(
+      `https://instagram-clone-api-etqy.onrender.com/user/follow/${userID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

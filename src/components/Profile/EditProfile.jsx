@@ -63,7 +63,7 @@ function EditProfile(props) {
     profileData.append("bio", editProfileData.bio);
 
     fetch(
-      `https://kem-instagram-clone.onrender.com/api/${userName}-profile-settings/`,
+      `https://instagram-clone-api-etqy.onrender.com/api/${userName}-profile-settings/`,
       {
         method: "PATCH",
         body: profileData,

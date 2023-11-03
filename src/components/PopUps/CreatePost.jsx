@@ -61,7 +61,7 @@ function CreatePost({ closeModal }) {
     postData.append("description", caption.description);
     postData.append("files", selectedFile);
 
-    fetch("https://kem-instagram-clone.onrender.com/api/posts/", {
+    fetch("https://instagram-clone-api-etqy.onrender.com/api/posts/", {
       method: "POST",
       body: postData,
       headers: {

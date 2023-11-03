@@ -74,7 +74,7 @@ function Signup() {
       console.log(form.username);
       console.log(form.password1);
 
-      fetch("https://kem-instagram-clone.onrender.com/auth/register/", {
+      fetch("https://instagram-clone-api-etqy.onrender.com/auth/register/", {
         method: "POST",
         body: signUpForm,
       })
