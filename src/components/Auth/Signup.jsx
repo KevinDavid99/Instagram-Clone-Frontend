@@ -8,7 +8,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 
 function Signup() {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     username: "",
@@ -155,7 +155,7 @@ function Signup() {
                 {loading ? (
                   <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
                 ) : (
-                  "Log in"
+                  "Sign up"
                 )}
               </button>
               <div className={styles.line}>
