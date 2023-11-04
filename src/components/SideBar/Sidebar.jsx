@@ -154,7 +154,7 @@ function Sidebar() {
               <a href="#">Settings</a>
             </Link>
 
-            <Link style={{ padding: "0" }} to="/login">
+            <Link style={{ padding: "0" }} to="/">
               <a onClick={logOut}>Log out</a>
             </Link>
 
