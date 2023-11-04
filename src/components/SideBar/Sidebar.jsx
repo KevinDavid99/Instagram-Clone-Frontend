@@ -34,7 +34,7 @@ function Sidebar() {
   const handleModal = ()=> setOpenModal(!openModal)
 
   const logOut = () =>{
-    fetch("https://kem-instagram-clone.onrender.com/auth/logout/", {
+    fetch("https://instagram-clone-api-etqy.onrender.com/auth/logout/", {
       method: "POST",
       headers: {
         Authorization: `Token ${localStorage.getItem("Token")}`,
