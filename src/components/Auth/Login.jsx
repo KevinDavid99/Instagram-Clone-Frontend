@@ -157,7 +157,7 @@ function Login() {
               </div>
               <div className={styles.footer}>
                 <p style={{ marginRight: "3px" }}>
-                  Don't have a accout?
+                  Don't have an accout?
                   <Link to="/signup">
                     <span>Sign Up</span>
                   </Link>

@@ -88,15 +88,6 @@ function PostFeed() {
       })
       .then((data) => {
         setPosts(data);
-        //   const userID = localStorage.getItem("UserId");
-        //   const updatedIsLike = {};
-        //   data.forEach((post) => {
-        //   const postID = post.id;
-        //   const likey = `isLike_${userID}_${postID}`;
-        //   const likedState = JSON.parse(localStorage.getItem(likey));
-        //   updatedIsLike[postID] = likedState || false;
-        // });
-        // setIslike(updatedIsLike);
       })
       .catch((err) => {
         console.log(err);
@@ -220,9 +211,6 @@ function PostFeed() {
             >
               <div
                 className={s.comments}
-                // onClick={() => {
-                //   setSelectedPostId(post.id);
-                // }}
               >
                 <span>View all comments</span>
               </div>

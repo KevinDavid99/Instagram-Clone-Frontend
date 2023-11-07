@@ -13,8 +13,7 @@ export function fetchUserProfile(userName) {
         "Content-Type": "application/json",
         Authorization: `Token ${localStorage.getItem("Token")}`,
       },
-    }
-  )
+  })
     .then((response) => response.json())
     .catch((error) => {
       console.log("Error:", error);
@@ -70,8 +69,7 @@ function FriendProfile(props) {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
         },
-      }
-    )
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
