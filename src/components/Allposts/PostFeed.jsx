@@ -7,32 +7,36 @@ import like from "./icons/heart-svgrepo-com.svg";
 import redlike from "./icons/red-heart-svgrepo-com (1).svg";
 import comment from "./icons/message-circle-svgrepo-com.svg";
 import Status from "../Status/Status";
-import downld from "./icons/download-icon1.jpg"
+import downld from "./icons/download-icon1.jpg";
 import Searchbar from "../Search/Searchbar";
 
-export function checkExpiryToken(){
-    const newDate = new Date();
-    const userTokenDate = new Date(localStorage.getItem("ExpiryToken"));
-    // comparing the current date and token expiry date values to check if the token is expired
-    // then redirect the user to the login page
-    if (newDate.getTime() >= userTokenDate.getTime()) {
-      window.location.href = '/';
-      localStorage.removeItem("Token");
-      localStorage.removeItem("UserId");
-      localStorage.removeItem("Username");
-      localStorage.removeItem("ExpiryToken");
-    }
+export function checkExpiryToken() {
+  const newDate = new Date();
+  const userTokenDate = new Date(localStorage.getItem("ExpiryToken"));
+  // comparing the current date and token expiry date values to check if the token is expired
+  // then redirect the user to the login page
+  if (newDate.getTime() >= userTokenDate.getTime()) {
+    window.location.href = "/";
+    localStorage.removeItem("Token");
+    localStorage.removeItem("UserId");
+    localStorage.removeItem("Username");
+    localStorage.removeItem("ExpiryToken");
+  }
 }
-
 
 function PostFeed() {
   const [posts, setPosts] = useState([]);
   const [islike, setIslike] = useState({});
 
-
+  useEffect(() => {
+    const savedIsLike = localStorage.getItem("islike");
+    if (savedIsLike) {
+      setIslike(JSON.parse(savedIsLike));
+    }
+  }, []);
 
   const toggleButton = (postID) => {
-    // const userID = localStorage.getItem("UserId");
+    const userID = localStorage.getItem("UserId");
 
     fetch(
       `https://instagram-clone-api-etqy.onrender.com/like/unlike/${postID}/`,
@@ -65,14 +69,14 @@ function PostFeed() {
       })
       .catch((err) => console.log("ERROR", err));
   };
-  
-// Function to download files to the device
-  const downloadFile = (postFileUrl) =>{
+
+  // Function to download files to the device
+  const downloadFile = (postFileUrl) => {
     console.log(postFileUrl);
     fetch(postFileUrl)
       .then((res) => res.blob())
       .then((file) => {
-        let tempUrl = URL.createObjectURL(file);//Tempoary url
+        let tempUrl = URL.createObjectURL(file); //Tempoary url
         const aTag = document.createElement("a");
         aTag.href = tempUrl;
         aTag.download = postFileUrl.replace(/^.*[\\\/]/, "");/* extract the filename from the full URL.*/
@@ -84,10 +88,10 @@ function PostFeed() {
       .catch(() => {
         alert("Failed to download file!");
       });
-  }
-  
-  checkExpiryToken()
-  
+  };
+
+  checkExpiryToken();
+
   useEffect(() => {
     fetch("https://instagram-clone-api-etqy.onrender.com/api/posts/", {
       method: "GET",
@@ -152,7 +156,15 @@ function PostFeed() {
               <div className={s.likeComment}>
                 {/* Likke and unlike */}
                 <div className="kkk" onClick={() => toggleButton(post.id)}>
-                  {islike[post.id] === false ? (
+                  {post.likes_count === 0 ? (
+                    <img
+                      style={{
+                        width: "30px",
+                        marginRight: "10px",
+                      }}
+                      src={like}
+                    />
+                  ) : islike[post.id] === false ? (
                     <img
                       style={{
                         width: "30px",
