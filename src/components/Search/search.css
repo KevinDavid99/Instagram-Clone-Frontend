@@ -1,13 +1,16 @@
-.not-found-img{
+.not-found-img {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* .not-found-img img{
-    margin-top: 50px;
-    width: 50%;
-} */
-/* 
-@media (max-width: 761px) {
-    
-} */
+
+.container {
+    margin-top: 40px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}

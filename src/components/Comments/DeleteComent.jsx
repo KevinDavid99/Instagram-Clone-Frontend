@@ -3,10 +3,11 @@ import Background from './ComentModal/Background';
 import '../Comments/comment.css'
 
 
-function DeleteComent({ closeModal, postID }) {
+function DeleteComent({ closeModal, commentId }) {
   const deletePost = () => {
+    console.log(commentId);
     fetch(
-      `https://instagram-clone-api-etqy.onrender.com/api/posts/${postID}/`,
+      `https://instagram-clone-api-etqy.onrender.com/api/comments-delete/${commentId}/`,
       {
         method: "DELETE",
         headers: {
@@ -42,5 +43,3 @@ function DeleteComent({ closeModal, postID }) {
 
 export default DeleteComent;
 
-
-// http://127.0.0.1:8000/api/comments-delete/27/

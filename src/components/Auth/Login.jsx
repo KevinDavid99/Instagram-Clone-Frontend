@@ -73,6 +73,7 @@ function Login() {
           } else {
             const errDetail = document.getElementById("invalid");
             errDetail.innerText = "Cross check your password and username";
+            errDetail.style.fontSize = '12px'
             setLoading(false);
           }
         })
@@ -81,6 +82,23 @@ function Login() {
           if (data) {
             localStorage.setItem("Token", data.token);
             localStorage.setItem("ExpiryToken", data.expiry);
+
+            fetch(
+              "https://instagram-clone-api-etqy.onrender.com/auth/user/",
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Token ${localStorage.getItem("Token")}`,
+                },
+              }
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                localStorage.setItem("UserId", data.id);
+                localStorage.setItem("Username", data.username);
+              })
+              .catch((err) => console.log("Error :", err));
             navigate("/feed");
           }
         })

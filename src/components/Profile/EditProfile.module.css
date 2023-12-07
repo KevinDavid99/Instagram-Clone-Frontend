@@ -98,3 +98,9 @@
   margin-top: 10px;
   cursor: pointer;
 }
+
+@media (max-width: 760px) {
+  .edit_profile_card {
+    width: 360px;
+  }
+}

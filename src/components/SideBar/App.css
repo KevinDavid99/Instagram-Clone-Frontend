@@ -21,6 +21,9 @@
   padding-left: 19px;
   margin-bottom: 3px;
 }
+.logout{
+  display: none;
+}
 
 .sidebar-links:hover{
   background-color: rgb(231, 231, 231);
@@ -136,18 +139,12 @@
 .sidebar-profileImg{
   display: none;
 }
-/* .search{
+.logout{
   display: block;
-  margin-left: 104px;
+
+  padding-right: 8px;
 }
-.search:hover{
-  cursor: pointer;
-  transition: 0;
-  border-radius: 0px;
-} */
-/* .side-bar .searchbar{
-  display: block;
-} */
+
 .sidebar-links-logo .ig-text{
   display: block;
   height: 40px;
@@ -166,7 +163,7 @@
   z-index: 2;
 }
 .sidebar-links{
-  height: 41px;
+  height: 45px;
 }
 .sidebar-links:hover{
   background-color: white;
@@ -180,7 +177,7 @@
 .sidebar-profileImg{
   background-color:white;
   height: 50px;
-  width: 190%;
+  width: 23px;
   display: flex;
   margin-right: 19px;
   margin-bottom: 3px;

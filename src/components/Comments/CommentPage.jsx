@@ -7,7 +7,10 @@ import { checkExpiryToken } from "../Allposts/PostFeed";
 
 function CommentPage(username) {
     const [modalOpen, setModalOpen] = useState(null);
-    const handleModal = (commentId) => { setModalOpen(commentId) };
+    const handleModal = (commentId) => { 
+      setModalOpen(commentId) 
+      console.log(commentId);
+    };
     
     const [comments, setComments] = useState([]);
     const [commentPost, setCommentPost] = useState({ comment : " " });
@@ -29,8 +32,7 @@ function CommentPage(username) {
             "Content-Type": "application/json",
             Authorization: `Token ${localStorage.getItem("Token")}`,
           },
-        }
-      )
+      })
         .then((response) => response.json())
         .then((data) => {
           setComments(data.comments);
@@ -60,8 +62,7 @@ function CommentPage(username) {
           headers: {
             Authorization: `Token ${localStorage.getItem("Token")}`,
           },
-        }
-      )
+      })
         .then((response) => {
           response.json();
           window.location.reload();
@@ -113,7 +114,7 @@ function CommentPage(username) {
                   )}
                   <hr />
                   {comments.map((message) => (
-                    <div className="commments-list" key={message.id}>
+                    <div className="commments-list" key={message.id} id={message.id}>
                       <div className="comment">
                         <img
                           src={message.user.profile_image}

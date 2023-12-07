@@ -16,8 +16,7 @@ function DeletePost({ closeModal, postID }) {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem("Token")}`,
         },
-      }
-    )
+    })
       .then((response) => {
         console.log(response);
         window.location.reload();

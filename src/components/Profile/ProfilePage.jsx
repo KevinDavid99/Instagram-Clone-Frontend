@@ -155,7 +155,7 @@ function ProfilePage(props) {
                 </p>
               </div>
             </div>
-            <hr style={{ width: "100%", marginBottom: "24px" }} />
+            <hr style={{ width: "100%" }} />
             <main>
               <div className={pstyle.gallery}>
                 {profile.posts.map((postfiles) => (
@@ -175,19 +175,29 @@ function ProfilePage(props) {
                         <div>Notin here</div>
                       </>
                     ) : postfiles.files.includes("image") ? (
-                      <img
-                        src={postfiles.files}
-                        alt="files-uploaded"
-                        className={pstyle.gallery_image}
-                      />
-                    ) : postfiles.files.includes("video") ? (
-                      <div className={pstyle.gallery_image}>
-                        <video
-                          className={pstyle.gallery_video}
+                      <Link
+                        to={`/comments/${postfiles.id}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <img
                           src={postfiles.files}
-                          controls
+                          alt="files-uploaded"
+                          className={pstyle.gallery_image}
                         />
-                      </div>
+                      </Link>
+                    ) : postfiles.files.includes("video") ? (
+                      <Link
+                        to={`/comments/${postfiles.id}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <div className={pstyle.gallery_image}>
+                          <video
+                            className={pstyle.gallery_image}
+                            src={postfiles.files}
+                            controls
+                          />
+                        </div>
+                      </Link>
                     ) : (
                       <>
                         <div className={pstyle.gallery_image}>Notin here</div>

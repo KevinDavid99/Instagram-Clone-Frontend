@@ -10,23 +10,11 @@ import notification from "../SideBar/Icons/heart-svgrepo-com.svg";
 import create from "../SideBar/Icons/add.PNG";
 import iglogo from "../SideBar/Icons/instagram-logo-facebook-2-svgrepo-com.png"
 import CreatePost from "../PopUps/CreatePost";
-import Searchbar from '../Search/Searchbar'
 import '../SideBar/App.css'
 import { fetchUserProfile } from "../Profile/ProfilePage";
 
 
 function Sidebar() {
-
-  // const testing = ()=>{
-  //   const sideBar = document.querySelector(".side-bar")
-  //   const searchIcon = document.getElementById("searchicon")
-  //   const searchBar = document.getElementById("searchbar");
-    
-  //   searchIcon.style.display = 'none'
-  //   searchBar.style.display = 'block'
-  //   sideBar.style.width = '270px'
-  //   // sideBar.style.zIndex = '2'
-  // }
 
   const [openModal, setOpenModal] = useState(false);
   const [userImg, setUserImg] = useState([])
@@ -46,13 +34,12 @@ function Sidebar() {
     localStorage.removeItem("UserId");
     localStorage.removeItem("Username");
     localStorage.removeItem("ExpiryToken")
-    // localStorage.removeItem("islike");
   }
 
   useEffect(() => {
     fetchUserProfile(localStorage.getItem("Username"))
       .then((data) => {
-        setUserImg([data])
+        setUserImg([data]);
       })
       .catch((error) => console.log("Error:", error));
   }, []);
@@ -85,11 +72,6 @@ function Sidebar() {
           <img src={search} style={{ width: "43px" }} alt="" />
           <p>Search</p>
         </div>
-
-        {/* Put search bar */}
-        {/* <div id="searchbar" className="searchbar" style={{ display: "none" }}>
-          <Searchbar />
-        </div> */}
 
         <div className="sidebar-links message">
           <img src={message} alt="" style={{ width: "43px" }} />
@@ -131,6 +113,11 @@ function Sidebar() {
             </div>
           ))}
         </Link>
+        <div className="sidebar-links logout">
+          <Link to="/">
+            <a onClick={logOut}>Log out</a>
+          </Link>
+        </div>
 
         <div
           className="sidebar-links menu  dropup"
@@ -142,7 +129,6 @@ function Sidebar() {
             style={{
               width: "46px",
               height: "50px",
-              backgroundColor: "red",
               padding: "0px",
             }}
           />

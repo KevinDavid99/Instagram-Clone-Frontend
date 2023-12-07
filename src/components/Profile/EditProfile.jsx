@@ -70,8 +70,7 @@ function EditProfile(props) {
         headers: {
           Authorization: `Token ${localStorage.getItem("Token")}`,
         },
-      }
-    )
+    })
       .then((response) =>
         response.status !== 200 ? setLoading(false) : response.json()
       )

@@ -25,8 +25,7 @@ function EditPost({ closeModal }) {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
         },
-      }
-    )
+    })
       .then((res) => res.json())
       .then((data) => {
         setPrefilData(data);
@@ -97,8 +96,7 @@ useEffect(() => {
         headers: {
           Authorization: `Token ${localStorage.getItem("Token")}`,
         },
-      }
-    )
+    })
       .then((response) => {
         console.log(response);
         if (response.ok) {

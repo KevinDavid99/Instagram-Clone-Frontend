@@ -50,3 +50,6 @@
 .select-btns .delete:hover{
   background-color: rgb(202, 12, 12);
 }
+.select-btns .delete:focus{
+  outline: none;
+}

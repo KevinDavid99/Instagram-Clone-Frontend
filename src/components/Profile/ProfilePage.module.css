@@ -97,6 +97,10 @@ img {
     background-color: #f4f4f4;
     transition: 0.5s;
 }
+.profile_edit_btn:focus{
+    outline: none;
+}
+
 .profile_settings_btn {
     font-size: 2rem;
     margin-left: 1rem;
@@ -145,19 +149,23 @@ img {
     color: #ffffff;
     height: 23rem; 
     background-color: rgb(171, 171, 171);
+    max-width: calc(33.333% - 2rem); /* Setting maximum width for each gallery item */
+    flex-grow: 0; /* Allowing items to not grow beyond the specified max-width */
+    background-color: rgb(171, 171, 171);
+    box-sizing: border-box; /* Ensuring padding and border don't affect the width */
+
 }
 
-.gallery_item:hover .gallery_item_info,
+/* .gallery_item:hover .gallery_item_info,
 .gallery_item:focus .gallery_item_info {
     display: flex;
-
     position: absolute;
     top: 0;
     cursor: pointer;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .gallery_item .actions{
     display : flex;
@@ -254,7 +262,7 @@ img {
     }
 
     .profile_user_settings {
-        flex-basis: calc(100% - 10.7rem);
+        flex-basis: 100%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 1rem;
@@ -308,7 +316,31 @@ img {
     .profile_stat_count {
         display: block;
     }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem;
+        padding-bottom: 3rem;
+    }
+
+    .gallery_item {
+        width: 100%;
+        margin: 0 0 2rem;
+        max-width: none;
+    }
+
+    .gallery_item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .gallery_item_info {
+        display: none; /* Hide the overlay on mobile */
+    }
 }
+
 
 /* Grid Feature Query */
 

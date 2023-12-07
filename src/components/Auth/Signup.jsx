@@ -164,7 +164,6 @@ function Signup() {
                 <span className={styles.arrow}></span>
               </div>
               <div className={styles.social__icon}>
-                <i className={styles.fab}></i>
                 <span className={styles.tandd}>
                   <div className={styles.errmessage}>
                     {errors.username}

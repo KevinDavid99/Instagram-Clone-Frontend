@@ -95,12 +95,14 @@ function Status() {
   return (
     <>
       <div className="stories-container">
-        <div className="content" onScroll={()=>{
-          if(storiesContent.scrollLeft <=24){
-            prevBtn.classList.remove('active')
-          } else{
-            prevBtn.classList.add('active')
-          }
+        <div
+          className="content"
+          onScroll={() => {
+            if (storiesContent.scrollLeft <= 24) {
+              prevBtn.classList.remove("active");
+            } else {
+              prevBtn.classList.add("active");
+            }
 
             let maxScrollValue =
               storiesContent.scrollWidth - storiesContent.clientWidth - 24;
@@ -110,7 +112,8 @@ function Status() {
             } else {
               nextBtn.classList.add("active");
             }
-        }}>
+          }}
+        >
           <div
             className="previous-btn"
             onClick={() => (storiesContent.scrollLeft -= 300)}
@@ -188,11 +191,16 @@ function Status() {
         </div>
 
         <div className="content">
-          <div className="previous-btn" onClick={()=>{
-            if(currentActiveIndexOfStory <=0)
-            {return} currentActiveIndexOfStory--; 
-            updateFullView()
-          }}>
+          <div
+            className="previous-btn"
+            onClick={() => {
+              if (currentActiveIndexOfStory <= 0) {
+                return;
+              }
+              currentActiveIndexOfStory--;
+              updateFullView();
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -214,11 +222,16 @@ function Status() {
             <div className="author">Author</div>
           </div>
 
-          <div className="next-btn" onClick={()=>{
-            if(currentActiveIndexOfStory >= allStories.length -1)
-            {return} currentActiveIndexOfStory++;
-            updateFullView()
-          }}>
+          <div
+            className="next-btn"
+            onClick={() => {
+              if (currentActiveIndexOfStory >= allStories.length - 1) {
+                return;
+              }
+              currentActiveIndexOfStory++;
+              updateFullView();
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

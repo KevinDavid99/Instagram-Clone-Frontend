@@ -103,7 +103,7 @@ if (hasPostsWithSearchedWord) {
                   />
                 )}
               </div> */}
-              <Link
+              {/* <Link
                 style={{ textDecoration: "none", color: "black" }}
                 to={`/comments/${post.id}`}
               >
@@ -114,15 +114,15 @@ if (hasPostsWithSearchedWord) {
                   }}
                   src={comment}
                 />
-              </Link>
-              <img style={{ width: "30px", marginTop: "2px" }} src={send} />
+              </Link> */}
+              {/* <img style={{ width: "30px", marginTop: "2px" }} src={send} /> */}
             </div>
-            <div className="bookmark">
+            {/* <div className="bookmark">
               <img style={{ width: "27px", color: "red" }} src={save} />
-            </div>
+            </div> */}
           </div>
 
-          <div className={s.likes}>{post.likes_count}</div>
+          {/* <div className={s.likes}>{post.likes_count}</div> */}
 
           <div className={s.caption}>
             <strong>{post.user.username}</strong> {post.description}

@@ -12,7 +12,10 @@ body {
     align-items: none;
     background-color: #ffffff;
     color: #262626;
-    padding-bottom: 0rem;
+    padding-bottom: 7rem;
+}
+.containerx{
+    background-color: red;
 }
 
 
@@ -62,8 +65,8 @@ body {
 
 /* Style menu icons (e.g., options, bookmark) */
 .option{
-    width: 18px;
-    position: absolute;
+    width: 40px;
+    cursor: pointer;
 }
 .imageContainerDiv{
    border-radius: 6px;
@@ -81,20 +84,20 @@ body {
     object-fit: cover;
 }
 .postVideo{
-    width: 100%; /* Reduce the width to 80% */
+    width: 100%; 
     max-height: 550px;
     border-radius: 6px;
     object-fit: cover;
 }
 
-/* Style the actions (like, comment, bookmark) */
+/* (like, comment, bookmark) */
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Style like and comment icons */
+
 .likeComment {
     cursor: pointer;
     display: flex;
@@ -107,7 +110,7 @@ body {
     font-weight: 600;
 }
 
-/* Style likes, caption, comments, and post time */
+
 .likes,
 .caption,
 .comments,
@@ -116,10 +119,6 @@ body {
     padding: 6px 2px;
 }
 
-/* .comment {
-    background-color: red;
-    margin-top: 4px;
-} */
 
 .comments span{
     cursor: pointer;
@@ -137,14 +136,23 @@ body {
 
 
 @media (max-width: 1071px) {
-  .card {
+  .postcard {
     width: 80%;
-    margin: 0 auto; /* Center the card */
+  }
+}
+@media (max-width: 900px) {
+  .postcard {
+    width: 90%;
   }
 }
 
-@media (max-width: 765px) {
-    body{
-        padding-bottom: 10px;
-    }
+@media (max-width: 600px) {
+  .postcard {
+    width: 100%;
+  }
+  body {
+  font-size: 14px;
 }
+}
+
+

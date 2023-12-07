@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import s from "../Allposts/PostFeed.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import save from "./icons/save.PNG";
 import send from "./icons/send.PNG";
-import option from "./icons/option.PNG";
 import like from "./icons/heart-svgrepo-com.svg";
 import redlike from "./icons/red-heart-svgrepo-com (1).svg";
 import comment from "./icons/message-circle-svgrepo-com.svg";
 import Status from "../Status/Status";
+import downld from "./icons/download-icon1.jpg"
 import Searchbar from "../Search/Searchbar";
 
 export function checkExpiryToken(){
@@ -48,8 +48,7 @@ function PostFeed() {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem("Token")}`, // taking the authenticcated user token to access all data
         },
-      }
-    )
+    })
       .then((res) => {
         return res.json();
       })
@@ -73,6 +72,26 @@ function PostFeed() {
       .catch((err) => console.log("ERROR", err));
   };
   
+// Function to download files to the device
+  const downloadFile = (postFileUrl) =>{
+    console.log(postFileUrl);
+    fetch(postFileUrl)
+      .then((res) => res.blob())
+      .then((file) => {
+        let tempUrl = URL.createObjectURL(file);//Tempoary url
+        const aTag = document.createElement("a");
+        aTag.href = tempUrl;
+        aTag.download = postFileUrl.replace(/^.*[\\\/]/, "");/* extract the filename from the full URL.*/
+        document.body.appendChild(aTag);
+        aTag.click();
+        URL.revokeObjectURL(tempUrl);
+        aTag.remove();
+      })
+      .catch(() => {
+        alert("Failed to download file!");
+      });
+  }
+  
   checkExpiryToken()
   
   useEffect(() => {
@@ -92,22 +111,6 @@ function PostFeed() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  useEffect(() => {
-    fetch("https://instagram-clone-api-etqy.onrender.com/auth/user/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("Token")}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem("UserId", data.id);
-        localStorage.setItem("Username", data.username);
-      })
-      .catch((err) => console.log("Error :", err));
   }, []);
 
   return (
@@ -133,9 +136,11 @@ function PostFeed() {
                 </Link>
                 <span className={s.posttime}>{post.created}</span>
               </div>
-              <div className="menu">
-                <img src={option} className={s.option} />
-              </div>
+              <img
+                onClick={() => downloadFile(post.files)}
+                src={downld}
+                className={s.option}
+              />
             </div>
 
             <div className={s.imageContainerDiv}>
@@ -193,8 +198,11 @@ function PostFeed() {
                 </Link>
                 <img style={{ width: "30px", marginTop: "2px" }} src={send} />
               </div>
-              <div className="bookmark">
-                <img style={{ width: "27px", color: "red" }} src={save} />
+              <div
+                className="bookmark"
+                onClick={() => downloadFile(post.files)}
+              >
+                <img style={{ width: "27px", cursor: "pointer" }} src={save} />
               </div>
             </div>
 
@@ -209,9 +217,7 @@ function PostFeed() {
               to={`/comments/${post.id}`}
               style={{ textDecoration: "none", color: "black" }}
             >
-              <div
-                className={s.comments}
-              >
+              <div className={s.comments}>
                 <span>View all comments</span>
               </div>
             </Link>
