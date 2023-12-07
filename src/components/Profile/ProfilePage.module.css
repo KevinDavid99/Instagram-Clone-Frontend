@@ -156,16 +156,6 @@ img {
 
 }
 
-/* .gallery_item:hover .gallery_item_info,
-.gallery_item:focus .gallery_item_info {
-    display: flex;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-} */
 
 .gallery_item .actions{
     display : flex;
@@ -209,17 +199,6 @@ img {
 }
 
 
-/* Loader */
-
-/* .loader {
-    width: 5rem;
-    height: 5rem;
-    border: 0.6rem solid #999;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    margin: 0 auto;
-    animation: loader 500ms linear infinite;
-} */
 
 /* Media Query */
 .follow_btn{
@@ -401,6 +380,17 @@ img {
         .profile_bio,
         .profileStats {
             margin: 0;
+        }
+
+        .gallery_item .actions {
+            display: flex;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+        }
+
+        .gallery_item_info {
+            display: block;
         }
     }
 }

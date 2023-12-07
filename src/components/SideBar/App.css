@@ -140,14 +140,13 @@
   display: none;
 }
 .logout{
-  display: block;
-
-  padding-right: 8px;
+  display: flex;
 }
 
 .sidebar-links-logo .ig-text{
   display: block;
   height: 40px;
+  width: 30px;
 }
 
 .side-bar {
@@ -179,7 +178,7 @@
   height: 50px;
   width: 23px;
   display: flex;
-  margin-right: 19px;
+  margin-right: 25px;
   margin-bottom: 3px;
 }
 
