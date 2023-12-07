@@ -29,16 +29,10 @@ function PostFeed() {
   const [posts, setPosts] = useState([]);
   const [islike, setIslike] = useState({});
 
-  useEffect(() => {
-    const savedIsLike = localStorage.getItem("islike");
-    if (savedIsLike) {
-      setIslike(JSON.parse(savedIsLike));
-    }
-  }, []);
+
 
   const toggleButton = (postID) => {
-    const userID = localStorage.getItem("UserId");
-    const likey =  `isLike_${userID}_${postID}`
+    // const userID = localStorage.getItem("UserId");
 
     fetch(
       `https://instagram-clone-api-etqy.onrender.com/like/unlike/${postID}/`,
@@ -55,10 +49,10 @@ function PostFeed() {
       .then((data) => {
         console.log(data);
         const updateIslike = { ...islike };
-        updateIslike[postID] = data.liked;
+        updateIslike[postID] = data.liked; //updates the updatedIsLike object with the new like status (true or false)
         setIslike(updateIslike);
 
-        localStorage.setItem(likey, JSON.stringify(updateIslike));
+        localStorage.setItem("Liked", JSON.stringify(updateIslike));
 
         setPosts((prevPost) =>
           prevPost.map((post) => {
@@ -158,15 +152,7 @@ function PostFeed() {
               <div className={s.likeComment}>
                 {/* Likke and unlike */}
                 <div className="kkk" onClick={() => toggleButton(post.id)}>
-                  {post.likes_count === 0 ? (
-                    <img
-                      style={{
-                        width: "30px",
-                        marginRight: "10px",
-                      }}
-                      src={like}
-                    />
-                  ) : islike[post.id] === false ? (
+                  {islike[post.id] === false ? (
                     <img
                       style={{
                         width: "30px",

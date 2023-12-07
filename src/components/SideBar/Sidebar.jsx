@@ -33,7 +33,8 @@ function Sidebar() {
     localStorage.removeItem('Token');
     localStorage.removeItem("UserId");
     localStorage.removeItem("Username");
-    localStorage.removeItem("ExpiryToken")
+    localStorage.removeItem("ExpiryToken");
+    localStorage.removeItem("Liked");
   }
 
   useEffect(() => {
